@@ -1,24 +1,16 @@
-"use strict";
-
-// https://pokeapi.co/docs/v2#types
-
 document.getElementById('battleButton').addEventListener('click', async (e) => {
-    e.preventDefault(); // Prevent the form from submitting
+    e.preventDefault();
 
-    // Grab the values entered in the input fields
     const pokemon1 = document.getElementById('pokeOne').value.trim();
     const pokemon2 = document.getElementById('pokeTwo').value.trim();
 
-    // Ensure both inputs are provided
     if (!pokemon1 || !pokemon2) {
         alert('Please enter names for both Pokémon.');
         return;
     }
 
-    // Call the function with the user input
     const result = await checkTypeAdvantage(pokemon1, pokemon2);
 
-    // Display the result on the page
     const resultDiv = document.getElementById('result');
     if (result.sprite) {
         resultDiv.innerHTML = `
@@ -30,7 +22,6 @@ document.getElementById('battleButton').addEventListener('click', async (e) => {
     }
 });
 
-// Fetch Pokémon data function
 async function fetchPokemonData(pokemonName) {
     try {
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName.toLowerCase()}`);
@@ -42,7 +33,6 @@ async function fetchPokemonData(pokemonName) {
     }
 }
 
-// Check type advantage function
 async function checkTypeAdvantage(pokemon1, pokemon2) {
     const p1Data = await fetchPokemonData(pokemon1);
     const p2Data = await fetchPokemonData(pokemon2);
