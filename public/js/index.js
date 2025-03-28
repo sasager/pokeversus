@@ -1,25 +1,23 @@
 "use strict";
 
-let pokemonNames = []; // Declare globally
+let pokemonNames = [];
 
-// Fetch Pokémon names dynamically
 async function fetchPokemonNames() {
     try {
         const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=1000');
         const data = await response.json();
-        pokemonNames = data.results.map(pokemon => pokemon.name); // Extract names
+        pokemonNames = data.results.map(pokemon => pokemon.name);
     } catch (error) {
         console.error('Error fetching Pokémon names:', error);
     }
 }
 
-// Call fetchPokemonNames on page load
 document.addEventListener('DOMContentLoaded', fetchPokemonNames);
 
 document.getElementById('battleButton').addEventListener('click', async (e) => {
     e.preventDefault();
 
-    // Ensure pokemonNames is populated
+    
     if (pokemonNames.length === 0) {
         alert('Pokémon names are still loading. Please try again in a moment.');
         return;
@@ -33,7 +31,7 @@ document.getElementById('battleButton').addEventListener('click', async (e) => {
         return;
     }
 
-    // Convert to lowercase for case-insensitive comparison
+    
     if (!pokemonNames.includes(pokemon1.toLowerCase()) || !pokemonNames.includes(pokemon2.toLowerCase())) {
         alert('Oops! Please enter two valid Pokémon.');
         return;

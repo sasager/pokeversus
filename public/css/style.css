@@ -37,9 +37,13 @@ form {
     align-items: center;
 }
 
-input {
-    
+#pokeOne {
+    border: 2px solid #a6a4e2;
 }   
+
+#pokeTwo {
+    border: 2px solid #e2c0a4;
+}
 
 #battleButton {
     display: flex;
