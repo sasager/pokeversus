@@ -66,15 +66,21 @@ form {
     margin: 3rem auto;
     background: rgba(0,0,0,0);
     border: none;
+    opacity: 0.90;
 }
 
 #battleButton:hover {
-    
+    opacity: 1;
+}
+
+#button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }
 
 #result {
     text-align: center;
-    height: 50%;
 }
 
 @media (max-width: 600px) {
