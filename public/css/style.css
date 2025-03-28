@@ -39,11 +39,27 @@ form {
 
 #pokeOne {
     border: 2px solid #a6a4e2;
-}   
+    padding: 12px;
+    font-size: 1rem;
+    color: #504bce;
+}
+
+#pokeOne:focus {
+    outline: none;
+    border: 3px solid #807ddd;
+  }
 
 #pokeTwo {
     border: 2px solid #e2c0a4;
+    padding: 12px;
+    font-size: 1rem;
+    color: #c3712c;
 }
+
+#pokeTwo:focus {
+    outline: none;
+    border: 3px solid #dba87d;
+  }
 
 #battleButton {
     display: flex;
@@ -58,6 +74,7 @@ form {
 
 #result {
     text-align: center;
+    height: 50%;
 }
 
 @media (max-width: 600px) {
